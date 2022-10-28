@@ -18,9 +18,12 @@ const Book = connection.define("books",
             allowNull: false
         },
         release_date: {
-            type: DataTypes.STRING(150),
+            type: DataTypes.DATEONLY,
             allowNull: false
         }
+    },
+    {
+        timestamps: false,
     }
 )
 
