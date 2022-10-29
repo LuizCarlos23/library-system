@@ -3,6 +3,9 @@ const HttpCodeError = require("../exceptions/http-exception")
 
 const bookRegisterSchema =  require("./schemas/book-register-schema")
 
+function bookRegisterPage(req, res, next) {
+    res.render("bookRegister", {pageTitle: "Registrar livros"})
+}
 
 async function bookRegister(req, res, next) {
     const bookData = req.body
@@ -28,10 +31,10 @@ async function bookRegister(req, res, next) {
         })
 
 
-        res.json({ message: "okay" })
+        res.json({ message: "Registered book" })
     } catch (error) {
         next(error)
     }
 }
 
-module.exports = bookRegister
+module.exports = { post: bookRegister, get: bookRegisterPage}
