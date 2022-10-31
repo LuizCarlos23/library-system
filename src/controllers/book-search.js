@@ -1,3 +1,4 @@
+const Yup = require("yup")
 const { Op } = require("sequelize")
 
 const Book = require("../models/books")
@@ -6,7 +7,7 @@ const HttpCodeError = require("../exceptions/http-exception")
 const bookSearchSchema = require("./schemas/book-search-schema")
 
 function bookSearchPage(req, res, next) {
-    res.render("bookSearch", {pageTitle: "Registrar livros"})
+    res.render("bookSearch", {pageTitle: "Buscar livros"})
 }
 
 async function bookSearch(req, res, next) {
@@ -21,15 +22,16 @@ async function bookSearch(req, res, next) {
                 }
                 throw new HttpCodeError(400, err.message, err)
             })
-        console.log(bookData)
+            
+        let dataToFind = new Object( Object.keys(bookData).map(key => {
+            if (!Number(bookData[key]), !(Yup.date().isValidSync(bookData[key]))) {
+                return new Object( { [key]: {[Op.like]: bookData[key]} } )
+            } 
+            return new Object( { [key]: bookData[key] } )
+        }))
 
         databaseData = await Book.findAll({
-            where: 
-                new Object(...Object.keys(bookData)
-                    .map(key => { 
-                        return new Object({[key]: {[Op.like]: `%${bookData[key]}%`}})
-                }))
-            , 
+            where: dataToFind, 
             raw: true
         }).catch(error => {
             throw new HttpCodeError(500, "Internal error", error)
