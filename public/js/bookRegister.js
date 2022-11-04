@@ -1,3 +1,4 @@
+
 const registerBookForm = document.getElementById("registerBookForm");
 let requestError = false
 
@@ -13,11 +14,15 @@ function handleSubmit(data){
     });
 }
 
-function message(message){
+function message(message, error = false){
     messageElement = document.getElementById("message");
-    if (requestError) messageElement.style.color = "red"
-    else messageElement.style.color = "green"
     messageElement.innerHTML = message
+    if (error) {
+        messageElement.style.color = "#ff606e"
+        messageElement.innerHTML +=" &#9888"
+    }
+    else messageElement.style.color = "#2acc80"
+    messageElement.style.visibility = "visible"
 }
 
 
@@ -35,8 +40,8 @@ registerBookForm.addEventListener("submit", (event) => {
             requestError = result.status != 200 ? true : false
             return result.json()
         })
-        .then(result => {
-            message(result.message)
+        .then((result) => {
+            message(result.message, requestError)
         })
         .catch(async err => {
             console.log(err)

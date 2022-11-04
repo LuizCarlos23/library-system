@@ -1,0 +1,85 @@
+form {
+    background-color: rgba(0, 0, 0, 0);
+    border: 3px solid white;
+    color: white;
+    border-radius: 10px;
+    width: 28em;
+    height: 20em;
+    padding: 2em 3em;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+form h1 {
+    font-size: 1.5em;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 1em 0.2em;
+}
+
+.form-header a {
+    color: #1e8fff;
+    /* text-decoration: none; */
+    font-size: 1.2em;
+}
+
+::-webkit-datetime-edit { 
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em !important;
+}
+
+form input {
+    margin: 0.3em 0 0.6em 0;
+    padding: 0.6em 0.3em 0.6em 0.6em;
+    border-radius: 10px;
+    font-size: 1.2em;
+    border: 0;
+}
+
+form input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #1e8fff;
+}
+
+form [type=submit] {
+    width: 7em;
+    font-size: 1em;
+    background-color: #6C757D;
+    color: white;
+    outline: none;
+    border: 0px;
+    box-shadow: none;  
+    align-self: flex-end;
+}
+
+form [type=submit]:hover {
+    box-shadow: none;
+    background-color: #495056;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none;
+}
+
+.message {
+    display: block;
+    visibility: hidden;
+    text-align: end;
+    height: 1em;
+    padding-right: 1em;
+    margin-bottom: 0.5em;
+}
+
+@media only screen and (max-width: 959px) {
+    *, body{
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    *, body{
+        font-size: 14px;
+    }
+}

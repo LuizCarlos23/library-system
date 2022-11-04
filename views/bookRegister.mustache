@@ -5,21 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{pageTitle}}</title>
-
+    <link rel="stylesheet" href="/static/css/bookRegister.css">
+    <link rel="stylesheet" href="/static/css/index.css">
 </head>
 <body>
-    <h1>Registrar livro</h1>
-    <form id="registerBookForm" action="register" method="post">
-        <label for="name">Nome</label>
-        <input type="text" name="name" id="name" placeholder="Digite o nome do livro...">
-        <label for="author">Autor</label>
-        <input type="text" name="author" id="author" placeholder="Digite o nome do autor">
-        <label for="release_date">Data de lançamento</label>
-        <input type="date" name="realease_date" id="release_date">
-        <input type="submit" value="Registrar">
-    </form>
-    <label id="message"></label>
-
+    <div class="container">
+        <form id="registerBookForm" action="register" method="post">
+            <div class="form-header">
+                <h1>REGISTRAR LIVRO</h1>
+                <a href="/books/search">Buscar</a>
+            </div>
+            <div class="message">
+                <span id="message"></span>
+            </div>
+            <input type="text" name="name" id="name" placeholder="Nome do livro">
+            <input type="text" name="author" id="author" placeholder="Autor">
+            <input type="date" name="realease_date" id="release_date">
+            <input type="submit" value="Registrar">
+        </form>
+    </div>
     <script src="/static/js/bookRegister.js"></script>
 </body>
 </html> 
