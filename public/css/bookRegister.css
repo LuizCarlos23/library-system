@@ -63,7 +63,7 @@ form [type=submit]:hover {
     box-shadow: none;
 }
 
-.message {
+.response-message {
     display: block;
     visibility: hidden;
     text-align: end;
