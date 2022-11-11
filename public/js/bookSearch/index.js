@@ -2,7 +2,7 @@ import handleSubmit from "../handleSubmit.js"
 import clearInputs from "../clearInputs.js";
 import showResponseMessage from "../showResponseMessage.js";
 
-const listElement = document.getElementById("list")
+const elementList = document.getElementById("list")
 const searchBookForm = document.getElementById("searchBookForm")
 const responseMesssageShowElement = document.getElementById("response-message")
 
@@ -21,7 +21,6 @@ searchBookForm.addEventListener("submit", async (event) => {
     if (inputElements.author.value) bookData.author = inputElements.author.value
     if (inputElements.release_date.value) bookData.release_date = inputElements.release_date.value
 
-    console.log(bookData)
     try {
         let response = await handleSubmit(window.location.href, bookData)
         let responseData = await response.json()
@@ -33,12 +32,12 @@ searchBookForm.addEventListener("submit", async (event) => {
 
         showResponseMessage(responseMesssageShowElement, responseData.message)
         clearInputs(Object.values(inputElements))
-        clearList()
+        clearList(elementList)
 
         if(!responseData.data) message("Nenhum resultado", true)
 
         responseData.data.map(data => {
-            addRowInTabel(data, listElement)
+            addRowInTabel(data, elementList)
         })
 
     } catch (error) {
@@ -54,17 +53,16 @@ function addRowInTabel(datas = {}, tableElement) {
         let newCell = newRow.insertCell(-1)
         
         if (isDate(datas[key])) datas[key] = formatDate(datas[key])
-        console.log(isDate(datas[key]))
         let newText = document.createTextNode(datas[key]);
         newCell.appendChild(newText);
     })
 }
 
-function clearList(){
-    if (listElement.children.length - 2 == 0) return
-    for (let child = 0; child <= listElement.children.length - 2; child++) {
-        listElement.removeChild(listElement.children.item(2))
-    }
+function clearList(elementList = []){
+    if (elementList.children.length == 0) return
+    Array(...elementList.children).forEach(item => {
+        elementList.removeChild(item)
+    })
 }
 
 function formatDate(date){
