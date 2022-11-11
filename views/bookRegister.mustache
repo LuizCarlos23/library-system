@@ -7,6 +7,7 @@
     <title>{{pageTitle}}</title>
     <link rel="stylesheet" href="/static/css/bookRegister.css">
     <link rel="stylesheet" href="/static/css/index.css">
+    <script defer type="module" src="/static/js/bookRegister/index.js"></script>
 </head>
 <body>
     <div class="container">
@@ -15,8 +16,8 @@
                 <h1>REGISTRAR LIVRO</h1>
                 <a href="/books/search">Buscar</a>
             </div>
-            <div class="message">
-                <span id="message"></span>
+            <div class="response-message">
+                <span id="response-message"></span>
             </div>
             <input type="text" name="name" id="name" placeholder="Nome do livro">
             <input type="text" name="author" id="author" placeholder="Autor">
@@ -24,6 +25,6 @@
             <input type="submit" value="Registrar">
         </form>
     </div>
-    <script src="/static/js/bookRegister.js"></script>
+    
 </body>
 </html> 

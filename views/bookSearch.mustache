@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Procurar livros</title>
+    <title>{{pageTitle}}</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/bookSearch.css">
+    <script defer type="module" src="/static/js/bookSearch/index.js"></script>
 </head>
 <body>
-    
+    <div class="container">
+        <form id="searchBookForm">
+            <label for="name">Nome</label>
+            <input type="text" name="name" id="name" placeholder="Digite o nome do livro...">
+            <label for="author">Autor</label>
+            <input type="text" name="author" id="author" placeholder="Digite o nome do autor">
+            <label for="release_date">Data de lançamento</label>
+            <input type="date" name="realease_date" id="release_date">
+            <input type="submit" value="Buscar">
+            <div class="response-message">
+                <span id="response-message"></span>
+            </div>
+        </form>
+        
+        <table border="1">
+            <caption align="top">LIVROS</caption>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Nome</td>
+                    <td>Autor</td>
+                    <td>Data de Lançamento</td>
+                </tr>
+            </thead>
+            <tbody id="list">
+
+            </tbody>
+        </table>
+    </div>
+        
 </body>
 </html>

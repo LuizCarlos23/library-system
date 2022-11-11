@@ -13,6 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
 }
 
 form {
@@ -20,3 +21,11 @@ form {
     flex-direction: column;
 }
 
+.response-message {
+    display: block;
+    visibility: hidden;
+    text-align: end;
+    height: 1em;
+    padding-right: 1em;
+    margin-bottom: 0.5em;
+}
