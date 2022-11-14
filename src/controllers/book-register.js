@@ -12,12 +12,9 @@ async function bookRegister(req, res, next) {
     let bookData
     try {
         bookData = await bookRegisterSchema.validate(data, { stripUnknown: true }).catch(err => {
-            if(err.type == 'typeError'){
-                throw new HttpCodeError(400, err.params.label, err)
-            }
             throw new HttpCodeError(400, err.message, err)
         })
-
+        
         await Book.create(bookData)
         .catch(err => {
             throw new HttpCodeError(500, "Internal error", err)

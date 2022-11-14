@@ -19,7 +19,7 @@ module.exports = {
         allowNull: false
       },
       release_date: {
-        type: Sequelize.DATEONLY,
+        type: Sequelize.INTEGER,
         allowNull: false
       }
     });
