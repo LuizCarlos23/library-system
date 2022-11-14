@@ -25,7 +25,7 @@ async function bookSearch(req, res, next) {
             
         let dataToFind = new Object( Object.keys(bookData).map(key => {
             if (!Number(bookData[key]), !(Yup.date().isValidSync(bookData[key]))) {
-                return new Object( { [key]: {[Op.like]: bookData[key]} } )
+                return new Object( { [key]: {[Op.iLike]: bookData[key]} } )
             } 
             return new Object( { [key]: bookData[key] } )
         }))
