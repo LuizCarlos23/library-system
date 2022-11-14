@@ -14,9 +14,9 @@ registerBookForm.addEventListener("submit", async (event) => {
         release_date: document.getElementById("release_date")
     }
     let bookData = {
-        name: inputElements.name.value,
-        author: inputElements.author.value,
-        release_date: inputElements.release_date.value
+        name: inputElements.name.value || "",
+        author: inputElements.author.value || "",
+        release_date: inputElements.release_date.value || -1
     };
 
     try {

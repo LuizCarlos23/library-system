@@ -48,7 +48,6 @@ searchBookForm.addEventListener("submit", async (event) => {
 
 function addRowInTabel(datas = {}, tableElement) {
     let newRow = tableElement.insertRow(-1)
-    
     Object.keys(datas).map(key => {
         let newCell = newRow.insertCell(-1)
         
