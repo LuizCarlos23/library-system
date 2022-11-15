@@ -2,7 +2,7 @@ import handleSubmit from "../handleSubmit.js"
 import clearInputs from "../clearInputs.js";
 import showResponseMessage from "../showResponseMessage.js";
 
-const elementList = document.getElementById("list")
+const elementList = document.getElementById("list-body")
 const searchBookForm = document.getElementById("searchBookForm")
 const responseMesssageShowElement = document.getElementById("response-message")
 
@@ -37,7 +37,7 @@ searchBookForm.addEventListener("submit", async (event) => {
         if(!responseData.data) message("Nenhum resultado", true)
 
         responseData.data.map(data => {
-            addRowInTabel(data, elementList)
+            addRowInList(data, elementList)
         })
 
     } catch (error) {
@@ -46,15 +46,24 @@ searchBookForm.addEventListener("submit", async (event) => {
     }
 });
 
-function addRowInTabel(datas = {}, tableElement) {
-    let newRow = tableElement.insertRow(-1)
+function addRowInList(datas = {}, listElement) {
+    let newRow = document.createElement("div")
+    newRow.setAttribute("class", "row")
+
     Object.keys(datas).map(key => {
-        let newCell = newRow.insertCell(-1)
-        
         if (isDate(datas[key])) datas[key] = formatDate(datas[key])
         let newText = document.createTextNode(datas[key]);
-        newCell.appendChild(newText);
+
+        let newCell = document.createElement("div")
+        newCell.setAttribute("class","cell")
+        let newH3 = document.createElement("h3")
+        newH3.appendChild(newText)
+        newCell.appendChild(newH3)
+        newRow.appendChild(newCell)
     })
+
+
+    listElement.appendChild(newRow)
 }
 
 function clearList(elementList = []){

@@ -31,27 +31,29 @@
     box-shadow: none;
 }
 
-
-table {
+#list {
+    display: flex;
+    flex-direction: column;
     width: 80vw;
-    border-collapse: collapse;
     border: 0.1em solid;
     margin-bottom: 1em;
 }
 
-thead { 
-    font-weight: bold;
+.row {
+    display: grid;
+    grid-template-columns: 1fr 4fr 4fr 2fr;
+    padding: 0.3em 0.3em;
     font-size: 1.1em;
 }
 
-td {
-    padding: 0.5em 0.3em 0.5em 0.6em;
-    border: 0;
-    text-transform: capitalize;
+#list-header { 
+  font-size: 1.3em;
 }
 
-caption {
-    padding: 0.3em 0 0.3em 0;
-    font-weight: bold;
-    font-size: 2em;
+#list-body > .row:hover { 
+  background-color: #1e8fff49;
+}
+
+.row > :last-child {
+  text-align: center;
 }
