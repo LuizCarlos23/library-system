@@ -22,7 +22,7 @@ searchBookForm.addEventListener("submit", async (event) => {
     if (inputElements.release_date.value) bookData.release_date = inputElements.release_date.value
 
     try {
-        let response = await handleSubmit(window.location.href, bookData)
+        let response = await handleSubmit("/books/search", bookData)
         let responseData = await response.json()
 
         if (response.status != 200) {
@@ -46,23 +46,39 @@ searchBookForm.addEventListener("submit", async (event) => {
     }
 });
 
+async function deleteBook(event){
+    let bookData = { book_id: event.target.getAttribute("data-id")}
+    try {
+        let response = await handleSubmit("/books/delete", bookData)
+        let responseData = await response.json()
+        
+        if (response.status != 200) throw "Error" 
+        
+        elementList.removeChild(event.path[2])
+    } catch (error) {
+        console.log(error)
+        alert("Ocorreu um erro ao deletar")
+    }
+}
+
+
 function addRowInList(datas = {}, listElement) {
     let newRow = document.createElement("div")
     newRow.setAttribute("class", "row")
+    let newCell
 
     Object.keys(datas).map(key => {
         if (isDate(datas[key])) datas[key] = formatDate(datas[key])
         let newText = document.createTextNode(datas[key]);
 
-        let newCell = document.createElement("div")
+        newCell = document.createElement("div")
         newCell.setAttribute("class","cell")
         let newH3 = document.createElement("h3")
         newH3.appendChild(newText)
         newCell.appendChild(newH3)
         newRow.appendChild(newCell)
     })
-
-
+    newRow.appendChild(createDeleteButton(datas.id))
     listElement.appendChild(newRow)
 }
 
@@ -87,4 +103,19 @@ function isDate(date) {
     var year = matches[1];
     var newDate = new Date(year, month, day);
     return newDate.getDate() == day && newDate.getMonth() == month && newDate.getFullYear() == year;
+}
+
+function createDeleteButton(bookId){
+    let newCell = document.createElement("div")
+    let button = document.createElement("button")
+
+    newCell.setAttribute("class", "cell")
+    button.appendChild(document.createTextNode("X"))
+    button.setAttribute("data-id", bookId)
+    button.setAttribute("class", "btn-delete")
+    button.addEventListener("click", deleteBook)
+    
+    newCell.appendChild(button)
+
+    return newCell
 }
