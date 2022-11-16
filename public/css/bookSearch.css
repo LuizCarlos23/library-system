@@ -1,4 +1,4 @@
-.container{
+.container {
     flex-direction: column;
     justify-content: start;
     color: #fff
@@ -39,21 +39,60 @@
     margin-bottom: 1em;
 }
 
-.row {
-    display: grid;
-    grid-template-columns: 1fr 4fr 4fr 2fr;
-    padding: 0.3em 0.3em;
+#list-header {
     font-size: 1.1em;
 }
 
-#list-header { 
-  font-size: 1.3em;
+#list-body>.row:hover {
+    background-color: #1e8fff49;
 }
 
-#list-body > .row:hover { 
-  background-color: #1e8fff49;
+.row {
+    display: grid;
+    grid-template-columns: 1fr 4fr 4fr 2fr 1fr;
+    padding: 0.3em 0.3em;
+    font-size: 1em;
 }
 
 .row > :last-child {
-  text-align: center;
+    text-align: center;
+}
+
+.cell {
+    align-items: center;
+}
+
+.btn-delete {
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1rem;
+    min-height: 1.5rem;
+    outline: 0;
+    padding: 0.1rem 0.5rem;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+.btn-delete:hover,
+.btn-delete:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #ffffff;
+}
+
+.btn-delete:active {
+    opacity: .5;
 }
