@@ -39,8 +39,9 @@
     margin-bottom: 1em;
 }
 
-#list-header {
-    font-size: 1.1em;
+#list-header .row {
+    font-size: 0.9em;
+    background-color: #12539349 ;
 }
 
 #list-body>.row:hover {
@@ -50,8 +51,8 @@
 .row {
     display: grid;
     grid-template-columns: 1fr 4fr 4fr 2fr 1fr;
-    padding: 0.3em 0.3em;
-    font-size: 1em;
+    padding: 0.5em 0.5em;
+    font-size: 0.8em;
 }
 
 .row > :last-child {
@@ -95,4 +96,12 @@
 
 .btn-delete:active {
     opacity: .5;
+}
+
+@media only screen and (max-width: 959px) {
+    .row {
+        grid-template-columns: 1fr 4fr 3fr 2fr 1fr;
+        padding: 0.5em 0.8em;
+        font-size: 1em;
+    }
 }

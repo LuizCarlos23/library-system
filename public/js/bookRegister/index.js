@@ -20,7 +20,7 @@ registerBookForm.addEventListener("submit", async (event) => {
     };
 
     try {
-        let response = await handleSubmit(window.location.href, bookData)
+        let response = await handleSubmit("/books/register", bookData)
         let responseData = await response.json()
 
         if (response.status != 200) {
