@@ -30,18 +30,24 @@ npm install
 ```
 ### Database
 
-Crie um banco de dados com o nome: library-system
+Crie um banco de dados com o nome `library-system`
 
 ### Migrations
 
 Execute as migrations
 
 ```bash
-npx sequelize-cli db:migrate
+npm run migrations
 ```
 ### Servidor
 
 Agora é so iniciar o servidor
+
+```bash
+npm run dev
+```
+
+ou
 
 ```bash
 npm start
