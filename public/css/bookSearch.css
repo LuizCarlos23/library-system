@@ -50,7 +50,7 @@
 
 .row {
     display: grid;
-    grid-template-columns: 1fr 4fr 4fr 2fr 1fr;
+    grid-template-columns: 1fr 4fr 4fr 2fr 1fr 1fr;
     padding: 0.5em 0.5em;
     font-size: 0.8em;
 }
@@ -100,7 +100,7 @@
 
 @media only screen and (max-width: 959px) {
     .row {
-        grid-template-columns: 1fr 4fr 3fr 2fr 1fr;
+        grid-template-columns: 1fr 4fr 3fr 2fr 1fr 1fr;
         padding: 0.5em 0.8em;
         font-size: 1em;
     }
