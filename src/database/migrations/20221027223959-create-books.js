@@ -21,6 +21,11 @@ module.exports = {
       release_date: {
         type: Sequelize.INTEGER,
         allowNull: false
+      },
+      quantity: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
       }
     });
   },
