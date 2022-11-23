@@ -58,7 +58,7 @@ npm start
 
 #### Armazena os dados do livro no banco de dados
 
-```http
+```
   POST /books/register
 ```
 
@@ -67,10 +67,11 @@ npm start
 | `name` | `string` | **Obrigatório**. Nome do livro |
 | `author` | `string` | **Obrigatório**. Autor do livro |
 | `release_date` | `number` | **Obrigatório**. Ano de lançamento do livro |
+| `quantity` | `number` | **Obrigatório**. Quantidade de livros |
 
 #### Retorna o(s) livro(s) referende ao filtro
 
-```http
+```
   POST /books/search/
 ```
 
@@ -79,3 +80,4 @@ npm start
 | `name` | `string` | **Opcional**. Nome do livro |
 | `author` | `string` | **Opcional**. Autor do livro |
 | `release_date` | `number` | **Opcional**. Ano de lançamento do livro |
+| `quantity` | `number` | **Opcional**. Quantidade de livros |
