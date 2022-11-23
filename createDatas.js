@@ -2,22 +2,26 @@ let datas = [
     {
         "release_date": "1576",
         "author": "Mureil",
-        "name": "Busan"
+        "name": "Busan",
+        "quantity": 1
     },
     {
         "release_date": "1041",
         "author": "Berta",
-        "name": "Sacramento"
+        "name": "Sacramento",
+        "quantity": 3
     },
     {
         "release_date": "1839",
         "author": "Harmonia",
-        "name": "Hong Kong"
+        "name": "Hong Kong",
+        "quantity": 1
     },
     {
         "release_date": "1839",
         "author": "Catrina",
-        "name": "Port Moresby"
+        "name": "Port Moresby",
+        "quantity": 1
     },
     {
         "release_date": "1873",
@@ -27,42 +31,50 @@ let datas = [
     {
         "release_date": "1539",
         "author": "Rebeca",
-        "name": "Surat"
+        "name": "Surat",
+        "quantity": 2
     },
     {
         "release_date": "1873",
         "author": "Lorenza",
-        "name": "Nagoya"
+        "name": "Nagoya",
+        "quantity": 1
     },
     {
         "release_date": "1253",
         "author": "Adriana",
-        "name": "Cape Town"
+        "name": "Cape Town",
+        "quantity": 1
     },
     {
         "release_date": "1249",
         "author": "Annice",
-        "name": "Guayaquil"
+        "name": "Guayaquil",
+        "quantity": 1
     },
     {
         "release_date": "1896",
         "author": "Edith",
-        "name": "Francistown"
+        "name": "Francistown",
+        "quantity": 2
     },
     {
         "release_date": "1896",
         "author": "Dede",
-        "name": "Muscat"
+        "name": "Muscat",
+        "quantity": 2
     },
     {
         "release_date": "1896",
         "author": "Ursulina",
-        "name": "Pune"
+        "name": "Pune",
+        "quantity": 1
     },
     {
         "release_date": "1896",
         "author": "Nananne",
-        "name": "Podgorica"
+        "name": "Podgorica",
+        "quantity": 1
     },
     {
         "release_date": "1896",
@@ -72,12 +84,14 @@ let datas = [
     {
         "release_date": "1896",
         "author": "Demetris",
-        "name": "Nukulaelae"
+        "name": "Nukulaelae",
+        "quantity": 1
     },
     {
         "release_date": "1479",
         "author": "Almeta",
-        "name": "Vientiane"
+        "name": "Vientiane",
+        "quantity": 2
     },
     {
         "release_date": "1485",
@@ -133,7 +147,7 @@ const Book = require("./src/models/books")
 datas.map(async data => {
     await Book.create(data)
     .catch(err => {
-        throw new HttpCodeError(500, "Internal error", err)
+        console.log(err)
     })
 
 })
