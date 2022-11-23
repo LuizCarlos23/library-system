@@ -20,6 +20,11 @@ const Book = connection.define("books",
         release_date: {
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        quantity: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0,
         }
     },
     {

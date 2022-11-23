@@ -12,7 +12,8 @@ searchBookForm.addEventListener("submit", async (event) => {
     let inputElements = {
         name: document.getElementById("name"),
         author: document.getElementById("author"),
-        release_date: document.getElementById("release_date")
+        release_date: document.getElementById("release_date"),
+        quantity: document.getElementById("quantity")
     }
     
     let bookData = {}
@@ -20,6 +21,7 @@ searchBookForm.addEventListener("submit", async (event) => {
     if (inputElements.name.value) bookData.name = inputElements.name.value
     if (inputElements.author.value) bookData.author = inputElements.author.value
     if (inputElements.release_date.value) bookData.release_date = inputElements.release_date.value
+    if (inputElements.quantity.value) bookData.quantity = inputElements.quantity.value
 
     try {
         let response = await handleSubmit("/books/search", bookData)
